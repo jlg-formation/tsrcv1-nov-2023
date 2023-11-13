@@ -7,7 +7,10 @@ const r0 = 45;
 const cx0 = 50;
 const cy0 = 50;
 
-const getPointFromIndex = (i, samples) => {
+const getPointFromIndex = (
+  /** @type {number} */ i,
+  /** @type {number} */ samples
+) => {
   const angle = ((2 * Math.PI) / samples) * i;
   const x = cx0 + r0 * Math.cos(angle);
   const y = cy0 + r0 * Math.sin(angle);
