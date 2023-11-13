@@ -2,6 +2,7 @@ console.log("coucou");
 
 const svgns = "http://www.w3.org/2000/svg";
 const samples = 10;
+const multiplicationFactor = 2;
 
 const r0 = 45;
 const cx0 = 50;
@@ -29,4 +30,19 @@ for (let i = 0; i < samples; i++) {
   circle.setAttributeNS(null, "cy", p.y + "");
   circle.setAttributeNS(null, "r", "1");
   gSample.appendChild(circle);
+}
+
+// on insert les droites
+const gLines = document.querySelector("g.lines");
+if (gLines === null) {
+  throw new Error("oups");
+}
+for (let i = 0; i < samples; i++) {
+  const p = getPointFromIndex(i, samples);
+  const line = document.createElementNS(svgns, "line");
+  line.setAttributeNS(null, "x1", "12");
+  line.setAttributeNS(null, "y1", "20");
+  line.setAttributeNS(null, "x2", "32");
+  line.setAttributeNS(null, "y2", "25");
+  gLines.appendChild(line);
 }
