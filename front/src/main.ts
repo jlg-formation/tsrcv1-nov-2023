@@ -1,19 +1,7 @@
+import { multiplicationFactor, samples, svgns } from "./constants.js";
+import { getPointFromIndex } from "./math.js";
+
 console.log("coucou");
-
-const svgns = "http://www.w3.org/2000/svg";
-const samples = 10;
-const multiplicationFactor = 2;
-
-const r0 = 45;
-const cx0 = 50;
-const cy0 = 50;
-
-const getPointFromIndex = (i: number, samples: number) => {
-  const angle = ((2 * Math.PI) / samples) * i - Math.PI / 2;
-  const x = cx0 + r0 * Math.cos(angle);
-  const y = cy0 + r0 * Math.sin(angle);
-  return { x, y };
-};
 
 // boucle qui genere du SVG et qui l'insert au bon endroit
 const gSample = document.querySelector("g.samples");
