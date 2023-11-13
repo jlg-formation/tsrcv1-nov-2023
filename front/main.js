@@ -12,7 +12,7 @@ const getPointFromIndex = (
   /** @type {number} */ i,
   /** @type {number} */ samples
 ) => {
-  const angle = ((2 * Math.PI) / samples) * i;
+  const angle = ((2 * Math.PI) / samples) * i - Math.PI / 2;
   const x = cx0 + r0 * Math.cos(angle);
   const y = cy0 + r0 * Math.sin(angle);
   return { x, y };
@@ -38,11 +38,12 @@ if (gLines === null) {
   throw new Error("oups");
 }
 for (let i = 0; i < samples; i++) {
-  const p = getPointFromIndex(i, samples);
+  const p1 = getPointFromIndex(i, samples);
+  const p2 = getPointFromIndex(i * multiplicationFactor, samples);
   const line = document.createElementNS(svgns, "line");
-  line.setAttributeNS(null, "x1", "12");
-  line.setAttributeNS(null, "y1", "20");
-  line.setAttributeNS(null, "x2", "32");
-  line.setAttributeNS(null, "y2", "25");
+  line.setAttributeNS(null, "x1", p1.x + "");
+  line.setAttributeNS(null, "y1", p1.y + "");
+  line.setAttributeNS(null, "x2", p2.x + "");
+  line.setAttributeNS(null, "y2", p2.y + "");
   gLines.appendChild(line);
 }
