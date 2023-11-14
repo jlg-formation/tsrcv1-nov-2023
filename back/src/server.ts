@@ -1,10 +1,13 @@
 import express from "express";
+import cors from "cors";
 import api from "./api";
 
 const port = 3000;
 const publicDir = "../front/dist";
 
 const app = express();
+
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log("req.url", req.url);

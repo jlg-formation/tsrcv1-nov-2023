@@ -52,6 +52,8 @@ export class Panel {
         console.log("random");
         const response = await fetch(url);
         this.config = await response.json();
+        this.render();
+        this.callback(this.config);
       } catch (err) {
         console.log("err: ", err);
       }
