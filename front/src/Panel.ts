@@ -1,3 +1,4 @@
+import { url } from "./constants";
 import { Config } from "./interfaces/Config";
 import { keys, querySelector } from "./utils/misc";
 
@@ -46,8 +47,14 @@ export class Panel {
 
   setRandomButtonAction() {
     const btnElt = querySelector(".command button.random");
-    btnElt.addEventListener("click", () => {
-      console.log("random");
+    btnElt.addEventListener("click", async () => {
+      try {
+        console.log("random");
+        const response = await fetch(url);
+        this.config = await response.json();
+      } catch (err) {
+        console.log("err: ", err);
+      }
     });
   }
 }
