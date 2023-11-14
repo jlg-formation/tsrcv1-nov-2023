@@ -1,5 +1,5 @@
 import express from "express";
-import api from "./api.js";
+import api from "./api";
 console.log("api: ", api);
 
 const port = 3000;
