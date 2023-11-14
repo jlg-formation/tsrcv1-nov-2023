@@ -1,15 +1,15 @@
 {
   "name": "front",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "build": "tsc"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "typescript": "^5.2.2"
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
   }
 }
