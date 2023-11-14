@@ -1,24 +1,35 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
+import { multiplicationFactor, samples, svgns } from "./constants.js";
+import { getPointFromIndex } from "./math.js";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+console.log("coucou");
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// boucle qui genere du SVG et qui l'insert au bon endroit
+const gSample = document.querySelector("g.samples");
+if (gSample === null) {
+  throw new Error("oups");
+}
+for (let i = 0; i < samples; i++) {
+  const p = getPointFromIndex(i, samples);
+  const circle = document.createElementNS(svgns, "circle");
+  circle.setAttributeNS(null, "cx", p.x + "");
+  circle.setAttributeNS(null, "cy", p.y + "");
+  circle.setAttributeNS(null, "r", "1");
+  gSample.appendChild(circle);
+}
+
+// on insert les droites
+const gLines = document.querySelector("g.lines");
+if (gLines === null) {
+  throw new Error("oups");
+}
+for (let i = 0; i < samples; i++) {
+  const p1 = getPointFromIndex(i, samples);
+  const p2 = getPointFromIndex(i * multiplicationFactor, samples);
+  const line = document.createElementNS(svgns, "line");
+  line.setAttributeNS(null, "x1", p1.x + "");
+  line.setAttributeNS(null, "y1", p1.y + "");
+  line.setAttributeNS(null, "x2", p2.x + "");
+  line.setAttributeNS(null, "y2", p2.y + "");
+  gLines.appendChild(line);
+}
