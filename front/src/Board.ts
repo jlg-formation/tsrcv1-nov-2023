@@ -10,6 +10,7 @@ export class Board {
     const { samples, multiplicationFactor } = this.config;
     // boucle qui genere du SVG et qui l'insert au bon endroit
     const gSample = querySelector("g.samples");
+    gSample.innerHTML = "";
     for (let i = 0; i < samples; i++) {
       const p = getPointFromIndex(i, samples);
       const circle = document.createElementNS(svgns, "circle");
@@ -21,6 +22,7 @@ export class Board {
 
     // on insert les droites
     const gLines = querySelector("g.lines");
+    gLines.innerHTML = "";
     for (let i = 0; i < samples; i++) {
       const p1 = getPointFromIndex(i, samples);
       const p2 = getPointFromIndex(i * multiplicationFactor, samples);

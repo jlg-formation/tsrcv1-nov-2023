@@ -8,6 +8,7 @@ export class Panel {
 
   constructor(private config: Config) {
     this.render();
+    this.setActions();
   }
 
   onUpdate(callback: Callback) {
@@ -18,6 +19,27 @@ export class Panel {
     for (const key of keys(this.config)) {
       const elt = querySelector(`.command .${key} .value`);
       elt.innerHTML = this.config[key].toString();
+
+      const inputElt = querySelector(
+        `.command .${key} input`,
+        HTMLInputElement
+      );
+      inputElt.value = this.config[key] + "";
+    }
+  }
+
+  setActions() {
+    for (const key of keys(this.config)) {
+      const inputElt = querySelector(
+        `.command .${key} input`,
+        HTMLInputElement
+      );
+      inputElt.addEventListener("input", (event) => {
+        console.log("change", event);
+        this.config[key] = +inputElt.value;
+        this.render();
+        this.callback(this.config);
+      });
     }
   }
 }
