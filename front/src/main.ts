@@ -1,6 +1,6 @@
-import "./style.scss";
 import { multiplicationFactor, samples, svgns } from "./constants.js";
 import { getPointFromIndex } from "./math.js";
+import "./style.scss";
 
 console.log("coucou");
 
