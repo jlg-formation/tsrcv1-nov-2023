@@ -34,12 +34,20 @@ export class Panel {
         `.command .${key} input`,
         HTMLInputElement
       );
-      inputElt.addEventListener("input", (event) => {
-        console.log("change", event);
+      inputElt.addEventListener("input", () => {
         this.config[key] = +inputElt.value;
         this.render();
         this.callback(this.config);
       });
     }
+
+    this.setRandomButtonAction();
+  }
+
+  setRandomButtonAction() {
+    const btnElt = querySelector(".command button.random");
+    btnElt.addEventListener("click", () => {
+      console.log("random");
+    });
   }
 }
