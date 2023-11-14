@@ -1,4 +1,4 @@
-import { cx0, r0, cy0 } from "./constants.js";
+import { cx0, r0, cy0 } from "./constants";
 
 export const getPointFromIndex = (i: number, samples: number) => {
   const angle = ((2 * Math.PI) / samples) * i - Math.PI / 2;

@@ -1,6 +1,6 @@
-import { Board } from "./Board.js";
-import { Panel } from "./Panel.js";
-import { Config } from "./interfaces/Config.js";
+import { Board } from "./Board";
+import { Panel } from "./Panel";
+import { Config } from "./interfaces/Config";
 import "./style.scss";
 
 console.log("coucou");
