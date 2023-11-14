@@ -13,3 +13,7 @@ export const setAttribute = (
 ): void => {
   elt.setAttributeNS(null, key, value + "");
 };
+
+export const keys = <T extends object>(o: T): (keyof T)[] => {
+  return Object.keys(o) as (keyof T)[];
+};
