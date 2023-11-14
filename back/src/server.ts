@@ -1,5 +1,5 @@
-const express = require("express");
-const api = require("./api");
+import express from "express";
+import api from "./api.js";
 console.log("api: ", api);
 
 const port = 3000;
