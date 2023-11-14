@@ -1,53 +1,10 @@
+@use "./scss/board.scss";
+@use "./scss/command.scss";
+
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: sans-serif;
-}
-
-svg {
-  width: 50em;
-  height: 25em;
-  border: 0.1em solid black;
-}
-
-circle {
-  fill: transparent;
-  stroke: black;
-  stroke-width: 0.02em;
-}
-
-g.samples circle {
-  fill: black;
-}
-
-g.lines line {
-  stroke: black;
-  stroke-width: 0.02em;
-}
-
-div.command {
-  width: 50em;
-  border: 0.1em solid black;
-  padding: 0.5em;
-
-  display: flex;
-  flex-flow: column;
-  gap: 0.5em;
-
-  label {
-    display: flex;
-    flex-flow: column;
-  }
-
-  div.buttons {
-    display: flex;
-    justify-content: space-evenly;
-
-    button {
-      cursor: pointer;
-      padding: 0.5em 1em;
-    }
-  }
 }
