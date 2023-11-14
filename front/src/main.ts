@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.scss";
 import { multiplicationFactor, samples, svgns } from "./constants.js";
 import { getPointFromIndex } from "./math.js";
 
